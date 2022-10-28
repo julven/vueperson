@@ -1,0 +1,22 @@
+
+  <nav class="teal">
+    <div class="nav-wrapper container" >
+      <a href="#" class="brand-logo left">Vue App</a>
+      <ul id="nav-mobile" class="right hide-on-small-only" @click.prevent="">
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/list">List</router-link></li>
+        <li><router-link to="/account">Account</router-link></li>
+      </ul>
+
+          <div class="right hide-on-med-and-up">
+          <a ref="navbarDropdown" class="dropdown-trigger" href="#!" data-target="navbarDropdown"><i class="material-icons right">menu</i></a>
+
+          <ul id="navbarDropdown" class="dropdown-content" @click.prevent="">
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/list">List</router-link></li>
+            <li><router-link to="/account">Account</router-link></li>
+          </ul>
+      </div>
+    </div>
+
+  </nav>

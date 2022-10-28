@@ -1,0 +1,17 @@
+.center-xy{
+	display: flex; flex-wrap: wrap; justify-content: center;align-items: center;
+}
+.clickable {
+	cursor: pointer;
+}
+.list-table {
+	width: 600px;
+}
+
+.left-xy{
+	display: flex; flex-wrap: wrap; justify-content: left;align-items: center;
+}
+
+.right-xy{
+	display: flex; flex-wrap: wrap; justify-content: right;align-items: center;
+}
