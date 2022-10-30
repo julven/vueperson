@@ -2,6 +2,7 @@ import listSearch from "./list_search.js"
 import listTable from "./list_table.js"
 import listPage from "./list_page.js"
 
+
 const listMain = async () => {
 
 	let html = await fetch("html/list_main.html")
@@ -18,8 +19,10 @@ const listMain = async () => {
 		props: [],
 		setup() {
 
-			return {
+			
 
+			return {
+				
 			}
 		}
 	})

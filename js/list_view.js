@@ -1,3 +1,5 @@
+import accountStore from "./account_store.js"
+
 let listView = async () => {
 	let html = await fetch("html/list_view.html")
 	html = await html.text()
@@ -7,11 +9,13 @@ let listView = async () => {
 		props: [],
 		setup() {
 
+			let { account } = accountStore()
 			let {useRouter} = VueRouter
 			let router = useRouter()
 
 			return {
-				router
+				router,
+				account
 			}
 		}
 	})

@@ -1,6 +1,12 @@
 <h5 style="margin: 0 0">Add Person</h5>
+<div class="right-align">
+	<button class="btn-flat waves-effect waves-light teal-text" style="margin: 5px 5px"
+	@click="randomPerson" :disabled="loading">Random</button>
+	
+</div>
 <list_form />
 <div class="right-align">
 	<button class="btn waves-effect waves-light grey accent-1 " style="margin: 5px 5px" @click="router.go(-1)">Back</button>
-	<router-link class="btn waves-effect waves-light " to="/list/edit/99" style="margin: 5px 5px">Submit</router-link>
+	<button @click="submit" :disabled="loading"
+	class="btn waves-effect waves-light " to="/list/edit/99" style="margin: 5px 5px">Submit</button>
 </div>

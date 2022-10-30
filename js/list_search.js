@@ -1,8 +1,11 @@
+import accountStore from "./account_store.js"
+import listStore from "./list_store.js"
+
 let listSearch = async () => {
 	let html = await fetch("html/list_search.html")
 	html = await html.text()
 
-	let { onMounted, onBeforeUnmount } = Vue
+	let { onMounted, onBeforeUnmount, computed, watch } = Vue
 	let { Dropdown } = M
 
 	return({
@@ -10,7 +13,21 @@ let listSearch = async () => {
 		props: [],
 		setup() {
 
+			let {account} = accountStore()
+			let storeList = listStore()
 			let instance = [null, null]
+
+			let find = () => {
+				
+				storeList.listFind()
+			}
+
+			let filter = (field, value) => {
+				storeList[field] = value
+				storeList.listFind()
+			}
+
+
 
 			onMounted(() => {
 				let elem1 = document.getElementById("genderTrigger")
@@ -25,8 +42,15 @@ let listSearch = async () => {
 				instance[1].destroy()
 			})
 
-			return {
+			watch( storeList, (now, old) => {
+				// console.log(now.gender)
+			}, { deep: true})
 
+			return {
+				account,
+				storeList,
+				find,
+				filter
 			}
 		}
 	})

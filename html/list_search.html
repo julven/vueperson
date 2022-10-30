@@ -1,39 +1,41 @@
 
 <div class="input-field">
-    <input id="search" type="text" class="">
+    <input id="search" type="text" class="" v-model="storeList.search">
     <label for="search">Search</label>
     <div class="center-xy">
         <p class="center-xy">
-            Gender: any 
+            Gender: &nbsp;<b>{{storeList.gender == ""? " Any " : storeList.gender}}&nbsp; </b>
             <span id="genderTrigger"  class="dropdown-trigger" data-target="genderDropdown">
                 <i class="material-icons  clickable">expand_more</i>
             </span>
         </p>
         <p class="center-xy">
-            Status: any 
+            Status: &nbsp;<b>{{storeList.status == ""? " Any " : storeList.status}} &nbsp; </b>
             <span id="statusTrigger" class="dropdown-trigger" data-target="statusDropdown">
                 <i class="material-icons  clickable">expand_more</i>
             </span>
         </p>
         <div>   
-            <button class="btn waves-effect waves-light " style="margin: 5px">Find</button>
-            <router-link to="/list/add" class="btn waves-effect waves-light light-blue" style="margin: 5px">Add</router-link>
+            <button @click="find"
+            class="btn waves-effect waves-light " style="margin: 5px">Find</button>
+            <router-link v-if="account.logged"
+            to="/list/add" class="btn waves-effect waves-light light-blue" style="margin: 5px">Add</router-link>
         </div>
 
         <ul id='genderDropdown' class='dropdown-content' @click.prevent="">
-            <li><a href="#/">Any</a></li>
-            <li><a href="#/">Male</a></li>
-            <li><a href="#/">Female</a></li>
+            <li @click="filter('gender', '')"><a  href="#/">Any</a></li>
+            <li @click="filter('gender', 'male')"><a  href="#/">Male</a></li>
+            <li @click="filter('gender', 'female')"><a  href="#/">Female</a></li>
             
         </ul>
 
         <ul id='statusDropdown' class='dropdown-content'  @click.prevent="">
-            <li><a href="#/">Any</a></li>
-            <li><a href="#/">Single</a></li>
-            <li><a href="#/">Married</a></li>
-            <li><a href="#/">Divorced</a></li>
-            <li><a href="#/">Widowed</a></li>
-            <li><a href="#/">Deceased</a></li>
+            <li @click="filter('status', '')"><a  href="#/">Any</a></li>
+            <li @click="filter('status', 'single')"><a  href="#/">Single</a></li>
+            <li @click="filter('status', 'married')"><a  href="#/">Married</a></li>
+            <li @click="filter('status', 'divorced')"><a  href="#/">Divorced</a></li>
+            <li @click="filter('status', 'widowed')"><a  href="#/">Widowed</a></li>
+            <li @click="filter('status', 'deceased')"><a  href="#/">Deceased</a></li>
             
         </ul>
         

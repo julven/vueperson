@@ -2,44 +2,48 @@
 <div >
 
   <div class="input-field"  style="max-width: 300px">
-      <input id="fname" type="text" class="">
+      <input id="fname" name="fname" type="text"  
+      :class="form.fname == '' && 'invalid'" v-model="form.fname">
       <label for="fname">First Name</label>
     </div>
 
 	<div class="input-field "  style="max-width: 300px">
-      <input id="lname" type="text" class="">
+      <input id="lname" name="lname" type="text" 
+      :class="form.lname == '' && 'invalid'" v-model="form.lname">
       <label for="lname">Last Name</label>
     </div>
 
     <div class="input-field " style="max-width: 200px">
-      <input type="text" id="bday" ref="bday" class="datepicker">
+      <input type="text" name="bday" id="bday" ref="bday" 
+      class="datepicker" :class="form.bday == '' && 'invalid'">
       <label for="bday">Birthday</label>
     </div>
 
     <div style="margin-bottom: 40px">
-    	<p class="grey-text" style="margin: 3px 0;">Gender  </p>
+    	<p style="margin: 3px 0;"
+    	 :class="form.bday == '' ? 'red-text': 'grey-text'">Gender  </p>
     	<label style="margin-right: 5px;">
-			<input name="group1" type="radio" checked />
-			<span>Male</span>
-		</label>
+				<input name="gender" type="radio" value="male" v-model="form.gender"/>
+				<span>Male</span>
+			</label>
 
-		<label style="margin-right: 5px;">
-			<input name="group1" type="radio"  />
-			<span>Female</span>
-		</label>
+			<label style="margin-right: 5px;">
+				<input name="gender" type="radio"  value="female" v-model="form.gender"/>
+				<span>Female</span>
+			</label>
     </div>
 
-    <div class="input-field"  style="max-width: 200px; margin-bottom: 10px">
-	    <select id="status_select">
-	      <option value="" disabled selected>-select-</option>
-	      <option value="single">single</option>
-	      <option value="Married">Married</option>
-	      <option value="divorced">divorced</option>
-	      <option value="widowed">widowed</option>
-	      <option value="deceased">deceased</option>
+    <div class="input-field "  style="max-width: 200px; margin-bottom: 10px">
+	    <select class="" id="status" name="status" v-model="form.status">
+	      <option  value="" disabled >-select-</option>
+	      <option  value="single" >single</option>
+	      <option  value="married">married</option>
+	      <option  value="divorced">divorced</option>
+	      <option  value="widowed">widowed</option>
+	      <option  value="deceased">deceased</option>
 	    
 	    </select>
-	    <label>Status</label>
+	    <label :class="form.status == '' && 'red-text'">Status</label>
 	  </div>
 </div>
 

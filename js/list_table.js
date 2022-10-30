@@ -1,3 +1,5 @@
+import accountStore from "./account_store.js"
+
 let listTable = async () => {
 	let html = await fetch("html/list_table.html")
 	html = await html.text()
@@ -10,10 +12,11 @@ let listTable = async () => {
 		props: [],
 		setup() {
 
+			let { account } = accountStore()
 			// onMounted(() => console.log("list table"))
 
 			return {
-
+				account
 			}
 		}
 	})

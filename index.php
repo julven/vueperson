@@ -29,23 +29,12 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 		import index from "./index.js"
 		import routings from "./js/routings.js"
 		
-		// import { AUTH } from './firebase.js'
- 
-		
 		const app = Vue.createApp(await index())
 		const pinia = Pinia.createPinia();
 
 		app.use(routings)
 		app.use(pinia)
-
 		app.mount("#app")
-
-		// console.log(window.Pinia)
-		// FB.AUTH.login({email: "julvenici@gmail.com", password: "julven4022"})
-		// .then( resp => console.log(resp))
-		// AUTH.currentUser()
-		// AUTH.logout()
-
 
 	</script>
 </body>

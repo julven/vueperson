@@ -36,6 +36,7 @@ const routings = createRouter({
 			{path: "add", component: await listAdd() },
 			{path: "edit/:id", component: await listEdit() },
 			{path: "view/:id", component: await listView() },
+			{path: "search/:search/gender/:gender/status/:status/page/:page", component: await listMain()}
 		]},
 		{path: "/account", component: await account(), children: [
 			{path: "", component: await accountForm(), beforeEnter: [routeGuard]},

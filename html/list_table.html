@@ -20,7 +20,8 @@
 						<span class="hide-on-small-only">View</span>
 						<i class="material-icons hide-on-med-and-up">edit</i>
 					</router-link >
-					<button class="btn-small waves-effect waves-light red" style="margin: 2px 5px">
+					<button v-if="account.logged"
+					class="btn-small waves-effect waves-light red" style="margin: 2px 5px">
 						<span class="hide-on-small-only">Delete</span>
 						<i class="material-icons hide-on-med-and-up">delete</i>
 					</button>

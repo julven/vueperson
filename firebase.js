@@ -75,7 +75,7 @@ const auth = firebase.auth();
 	            .doc(id)
 	            .get()
 	            .then( resp => resolve(resp))
-	            .catch( err => resolve({error: err}));
+	            .catch( err => resolve({read_id_error: err}));
         	});
     	},
     	update: async (table, id, data) => {
@@ -84,6 +84,18 @@ const auth = firebase.auth();
 	            .collection(table)
 	            .doc(id).update(data);
 	    },
+	    create:  (table, data) => {
+	    	return new Promise( resolve => {
+	    		firestore
+	            .collection(table)
+	            .add(data)
+	            .then( resp => resolve(resp.id))
+	            .catch( err => {
+	            	console.log(err)
+	            	resolve(false)
+	            })
+	    	})
+	    }
 	}
 	
 
