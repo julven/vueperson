@@ -6,20 +6,23 @@
 				<div style="max-width: 300px;">
 					<div class="input-field ">
 						<i class="material-icons prefix">account_box</i>
-					  <input  id="user" type="text" class="">
-					  <label for="user">Username</label>
+					  <input  id="user" type="email" v-model="account.email" 
+					  :class="invalid ? 'invalid': ''">
+					  <label for="user" >Email</label>
+
 					</div>
 
 			        <div class="input-field ">
 			        	<i class="material-icons prefix">lock</i>
-			          <input id="pass" type="password" class="">
+			          <input id="pass" type="password" v-model="account.password"
+			          :class="invalid ? 'invalid': ''">
 			          <label for="pass">Password</label>
 			        </div>	
 
 			        
 				</div>
 				<div class="right-align">
-		        	<router-link to="/account" class="btn waves-effect waves-light">Login</router-link>
+		        	<button :disabled="loading" class="btn waves-effect waves-light" @click="login">Login</button>
 		        </div>
 				
 			</div>

@@ -45,6 +45,9 @@
 
 				</table>
 				<div class="divider" />
+				<div class="right-align"> 
+					<router-link to="/list" class="btn-flat teal-text">View</router-link>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -57,33 +60,40 @@
 					<tbody>
 						
 						<tr>
-							<td>Username</td>
-							<th>Admin</th>
+							<td>Email</td>
+							<th>{{account.email}}</th>
 						</tr>
 						<tr>
 							<td>ID</td>
-							<th>99</th>
+							<th :title="account.id">
+								<div class="truncate" style="max-width: 100px">
+									{{account.id}}
+								</div>
+							</th>
 						</tr>
 						<tr>
 							<td>First</td>
-							<th>John</th>
+							<th>{{account.fname}}</th>
 						</tr>
 						<tr>
 							<td>Last</td>
-							<th>Smith</th>
+							<th>{{account.lname}}</th>
 						</tr>
 						<tr>
 							<td>Gender</td>
-							<th>Male</th>
+							<th>{{account.gender}}</th>
 						</tr>
 						<tr>
 							<td>Birthday</td>
-							<th>0000-00-00</th>
+							<th>{{account.bday}}</th>
 						</tr>
 					</tbody>
 
 				</table>
 				<div class="divider" />
+				<div class="right-align"> 
+					<router-link to="/account" class="btn-flat teal-text">View</router-link>
+				</div>
 			</div>
 		</div>
 	</div>

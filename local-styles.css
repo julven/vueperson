@@ -15,3 +15,6 @@
 .right-xy{
 	display: flex; flex-wrap: wrap; justify-content: right;align-items: center;
 }
+td,th {
+
+}

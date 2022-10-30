@@ -1,8 +1,23 @@
-
-<div class="navbar-fixed">
-	<navbar />
-
+<div  v-if="loading" class="center-xy" style="height: 100vh; width: 100%">
+	<div class="preloader-wrapper big active ">
+	    <div class="spinner-layer spinner-blue-only">
+	      <div class="circle-clipper left">
+	        <div class="circle"></div>
+	      </div><div class="gap-patch">
+	        <div class="circle"></div>
+	      </div><div class="circle-clipper right">
+	        <div class="circle"></div>
+	      </div>
+	    </div>
+	  </div>
 </div>
-<div class="container">
-	<router-view/>
+
+<div v-else >
+	<div class="navbar-fixed">
+		<navbar />
+	</div>
+	<div class="container">
+		<router-view/>
+	</div>
 </div>
+

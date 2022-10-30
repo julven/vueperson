@@ -8,10 +8,24 @@ import listMain from "./list_main.js"
 import accountLogin from "./account_login.js"
 import accountForm from "./account_form.js"
 import accountPassword from "./account_password.js"
+import accountStore from "./account_store.js"
 
 
 
-let { createRouter, createWebHashHistory } = VueRouter
+let { createRouter, createWebHashHistory, useRouter } = VueRouter
+let initRoute = "/account"
+
+let routeGuard = (to, from) => {
+
+	let store = accountStore()
+
+	// console.log({init: to.path})
+	initRoute = to.path
+
+	if(store.account.logged) return true;
+	return "/account/login"
+}
+
 
 const routings = createRouter({
 	history: createWebHashHistory(),
@@ -24,15 +38,26 @@ const routings = createRouter({
 			{path: "view/:id", component: await listView() },
 		]},
 		{path: "/account", component: await account(), children: [
-			{path: "", component: await accountForm() },
-			{path: "login", component: await accountLogin() },
-			{path: "password", component: await accountPassword() },
+			{path: "", component: await accountForm(), beforeEnter: [routeGuard]},
+			{path: "login", component: await accountLogin(), beforeEnter: async (to, from) => {
+				let store = accountStore()
+				
+				let logged  = await store.currentUser()
+
+				// console.log(initRoute)
+
+				if(logged) return initRoute == "/account/login" ? "/account" : initRoute;
+				return true
+
+			} },
+			{path: "password", component: await accountPassword(), beforeEnter: [routeGuard] },
 		]},
 
 
 		{path: "/:pathMatch(.*)*", component: {template: `<p>Page not found</p>`}},
 	]
 })
+
 
 
 export default routings

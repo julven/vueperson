@@ -3,53 +3,59 @@
 		<div class="card-content">
 			<h5 style="margin: 0 0">Information</h5>
 			<div class="right-align">
-	        	<router-link to="/account/login" class="btn-flat waves-effect waves-light red-text">Logout</router-link>
+	        	<button @click="logout"
+	        	class="btn-flat waves-effect waves-light red-text">Logout</button>
 	        </div>
 
-	        <div class="left-xy">
-	        	<div class="input-field"  style="width: 235px; margin:  5px;">
-		          <input disabled id="username" type="text" class="" value="Admintest">
-		          <label for="username">Username</label>
+	        <div style="max-width: 300px">
+	        	<div class="input-field"  st>
+		          <input disabled id="username" type="text" class="" :value="account.email">
+		          <label for="username">Email</label>
 		        </div>
 
-		        <div class="input-field"  style="width: 50px; margin:  5px;">
-		          <input disabled id="id" type="text" class="" value="99">
+		        <div class="input-field" >
+		          <input disabled id="id" type="text" class="" :value="account.id">
 		          <label for="id">ID</label>
 		        </div>
 	        </div>
 	        
 
 	        <div class="input-field"  style="max-width: 300px">
-	          <input id="fname" type="text" class="">
+	          <input @input="e => valid(e)"
+	          id="fname" name="fname" type="text" class="active" v-model="form.fname" >
 	          <label for="fname">First Name</label>
 	        </div>
 
 	        <div class="input-field "  style="max-width: 300px">
-	          <input id="lname" type="text" class="">
+	          <input  @input="e => valid(e)"
+	          id="lname" type="text" class=""  v-model="form.lname">
 	          <label for="lname">Last Name</label>
 	        </div>
 
 	        <div class="input-field " style="max-width: 200px">
-	          <input type="text" id="bday" ref="bday" class="datepicker">
+	          <input  @input="e => valid(e)"
+	          type="text" id="bday" ref="bday"  class="datepicker">
 	          <label for="bday">Birthday</label>
 	        </div>
 
 	        <div style="margin-bottom: 5px">
-	        	<p class="grey-text" style="margin: 3px 0;">Gender  </p>
+	        	<p :class="form.gender == ''? 'red-text':'grey-text'" 
+	        	style="margin: 3px 0;">Gender  </p>
 	        	<label style="margin-right: 5px;">
-					<input name="group1" type="radio" checked />
+					<input name="gender" type="radio" value="male" v-model="form.gender"/>
 					<span>Male</span>
 				</label>
 
 				<label style="margin-right: 5px;">
-					<input name="group1" type="radio"  />
+					<input name="gender" type="radio" value="female"  v-model="form.gender" />
 					<span>Female</span>
 				</label>
 	        </div>
 			
 	        <div class="right-align">
 	        	<router-link to="/account/password" class="btn waves-effect waves-light" style="margin:  2px">Password</router-link>
-	        	<button class="btn waves-effect waves-light light-blue" style="margin: 2px">Update</button>
+	        	<button @click="update" :disabled="loading"
+	        	class="btn waves-effect waves-light light-blue" style="margin: 2px">Update</button>
 	        </div>
 	       
 		</div>
