@@ -17,4 +17,7 @@
 }
 td,th {
 
+},
+.text-cap {
+	text-transform: capitalize;
 }

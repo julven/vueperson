@@ -19,12 +19,17 @@ const listForm = async () => {
 
 
 			onMounted( () => {
+
 				let select = document.getElementById("status")
 				let picker = document.getElementsByClassName("datepicker")[0]
+
+				// console.log({select, picker})
+
 				instance[0] = FormSelect.init(select, {})
 				instance[1] = Datepicker.init(picker, {
 					onClose: date => {
 						console.log(instance[1].toString())
+						store.person.bday = instance[1].toString()
 					},
 					autoClose: true,
 					format: "yyyy-mm-dd",

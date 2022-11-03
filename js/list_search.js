@@ -19,12 +19,14 @@ let listSearch = async () => {
 
 			let find = () => {
 				
-				storeList.listFind()
+				storeList.newSearch()
+				storeList.changeURL()
 			}
 
 			let filter = (field, value) => {
 				storeList[field] = value
-				storeList.listFind()
+				storeList.newSearch()
+				storeList.changeURL()
 			}
 
 

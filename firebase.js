@@ -95,6 +95,37 @@ const auth = firebase.auth();
 	            	resolve(false)
 	            })
 	    	})
+	    },
+	    read_batch: async (table, startRef) => {
+
+	    	let ref = firestore.collection(table)
+	    	let data = null
+	    	let limit = 10
+
+	    	if(startRef) data = await ref.orderBy("fname", "asc").startAfter(startRef).limit(limit).get()
+	    	else data = await ref.orderBy("fname", "asc").limit(limit).get()
+	    	
+	    	if(data.docs.length == 0) return false;
+	    	return data.docs
+	    },
+	    read_specific: async (table, type, value) => {
+
+	    	try{
+		    	let result = await firestore
+		    	.collection(table)
+		    	.where(type, '==', value)
+		    	.get()
+
+	    		return result.docs
+
+	    	}catch(err) {
+	    		console.log(err)
+	    	}
+
+	    },
+	    count_all: async () => {
+	    	let result = await firestore.collection("persons").get()
+	    	return result.docs
 	    }
 	}
 	

@@ -15,21 +15,23 @@ let listPage = async () => {
 			let store = listStore()
 
 			let more = () => {
+				store.getMore()
 				
 			}
 
 			let goTo = (page) => {
-
+				store.goToPage(page)
 			}
 
 			watch( store, (now, old) => {
-				console.log(now)
+				// console.log(now)
 			}, { deep: true})
 
 			return {
 				store,
 				find,
-				goTo
+				goTo,
+				more
 
 
 			}

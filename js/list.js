@@ -6,7 +6,8 @@ let list = async () => {
 	html = await html.text();
 
 	let { onMounted } = Vue
-	let { updateTextFields } = M
+
+
 
 	return({
 		template: html,
@@ -14,8 +15,11 @@ let list = async () => {
 		props: [],
 		setup() {
 
+			
+
 			onMounted( () => {
-				console.log()
+				
+			
 				// updateTextFields()
 			})
 

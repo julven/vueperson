@@ -2,25 +2,26 @@
 	<table class="striped  list-table" >
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>#</th>
 				<th>First</th>
 				<th class="hide-on-small-only">Last</th>
 				
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="x in [].constructor(10)">
+			<tr v-for="(x, i) in list" key="x.id">
 
-				<td>99</td>
-				<td class="">test</td>
-				<td class="hide-on-small-only">test</td>
+				<td >{{((page-1)*10)+(i+1)}}</td>
+				<td class="">{{x.fname}}</td>
+				<td class="hide-on-small-only text-cap">{{x.lname}}</td>
 				<td class="right-align">
 					
-					<router-link to="/list/view/99" class="btn-small waves-effect waves-light" style="margin: 2px 5px">
+					<router-link title="view" :to="'/list/view/'+x.id" class="btn-small waves-effect waves-light" style="margin: 2px 5px">
 						<span class="hide-on-small-only">View</span>
-						<i class="material-icons hide-on-med-and-up">edit</i>
+						<i  class="material-icons hide-on-med-and-up">visibility</i>
 					</router-link >
-					<button v-if="account.logged"
+					<button @click="deletePerson(x.id)"
+					v-if="account.logged"  title="delete"
 					class="btn-small waves-effect waves-light red" style="margin: 2px 5px">
 						<span class="hide-on-small-only">Delete</span>
 						<i class="material-icons hide-on-med-and-up">delete</i>

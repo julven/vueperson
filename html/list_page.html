@@ -6,11 +6,14 @@
         <li class="waves-effect"><a href="#!">3</a></li>
         <li class="waves-effect"><a href="#!">4</a></li> -->
         <li class="waves-effect" v-for="x in store.pages" key="x">
-            <a href="#/" @click="goTo(x)">{{x}}</a>
+            
+            <a href="#/" class="grey-text active" v-if="store.page == x">{{x}}</a>
+            <a href="#/" @click="goTo(x)" class="teal-text" v-else>{{x}}</a>
         </li>
         <li >
-            <a @click="more" 
-            href="#/" class="waves-effect active">more...</a>
+            <a @click="more" v-if="store.more"
+            href="#/" class="waves-effect active teal-text">more...</a>
+            <a v-else class="grey-text" href="#/" @click.prevent="">end</a>
         </li>
     </ul>
 </div>
