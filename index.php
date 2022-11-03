@@ -1,6 +1,8 @@
 <?php 
 header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+$no_log = "";
+// $no_log = "window.console.log = function ()  {}";
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +25,11 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 	<link rel="stylesheet" href="local-styles.css">
 </head>
 <body>
+	<p id="loading">Loading resources...</p>
 	<div id="app"></div>
 	<script type="module" defer>
+
+		<?php echo $no_log; ?>
 
 		import index from "./index.js"
 		import routings from "./js/routings.js"
@@ -35,6 +40,8 @@ header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 		app.use(routings)
 		app.use(pinia)
 		app.mount("#app")
+
+
 
 	</script>
 </body>

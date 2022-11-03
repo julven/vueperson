@@ -77,13 +77,15 @@ let listStore = defineStore('list', {
 			await this.getList();
 		
 		},
-		changeURL() {
-		
-			this.router.push(`/list/search/
+		changeURL(replace) {
+			let path = `/list/search/
 				${this.search == "" ? "_" : this.search}/gender/
 				${this.gender == "" ? "_" : this.gender}/status/
 				${this.status == "" ? "_" : this.status}/page/
-				${this.page}`)
+				${this.page}`;
+				
+			if(replace) this.router.replace(path)
+			else  this.router.push(path)
 
 		},
 		async getList(addPageRef) {

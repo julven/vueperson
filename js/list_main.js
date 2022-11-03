@@ -40,7 +40,7 @@ const listMain = async () => {
 				if(status && status[0] != "_" && [
 					"single", "married", "divorced", "widowed", "deceased"
 					].includes(status)) store.status = status;
-				store.changeURL()
+				store.changeURL(true)
 				
 			})
 

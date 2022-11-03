@@ -32,6 +32,7 @@ let index =  async () => {
 				// console.log("index")
 				getCurrentUser()
 				list.router = useRouter()
+				document.getElementById("loading").remove();
 				// store.logout();
 			})
 
