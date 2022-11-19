@@ -25,7 +25,19 @@ $no_log = "";
 	<link rel="stylesheet" href="local-styles.css">
 </head>
 <body>
-	<p id="loading">Loading resources...</p>
+	<div id="loading" style="height: 100vh" class="center-xy">
+		<div class="preloader-wrapper small active">
+		    <div class="spinner-layer spinner-green-only">
+		      <div class="circle-clipper left">
+		        <div class="circle"></div>
+		      </div><div class="gap-patch">
+		        <div class="circle"></div>
+		      </div><div class="circle-clipper right">
+		        <div class="circle"></div>
+		      </div>
+		    </div>
+		  </div>
+	</div>
 	<div id="app"></div>
 	<script type="module" defer>
 

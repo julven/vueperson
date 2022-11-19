@@ -1,4 +1,4 @@
-
+import routings from "./routings.js"
 
 let list = async () => {
 
@@ -30,5 +30,6 @@ let list = async () => {
 		}
 	})
 }
+
 
 export default list

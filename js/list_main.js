@@ -3,7 +3,6 @@ import listTable from "./list_table.js"
 import listPage from "./list_page.js"
 import listStore from "./list_store.js"
 
-
 const listMain = async () => {
 
 	let html = await fetch("html/list_main.html")

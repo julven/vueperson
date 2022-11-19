@@ -1,7 +1,7 @@
 import accountStore from "./account_store.js"
 import listStore from "./list_store.js"
 import spinner from "./spinner.js"
-// import routings from "./routings.js"
+import routings from "./routings.js"
 
 const home = async () => {
 	let html = await fetch("html/home.html")
@@ -51,6 +51,8 @@ const home = async () => {
 // 		template: "<div id='home'></div>",
 // 		setup() {
 
+// 			let app = null
+
 // 			let mounting = async () => {
 // 				let html = await fetch("html/home.html")
 // 				html = await html.text()
@@ -58,7 +60,7 @@ const home = async () => {
 // 				let { onMounted, computed, ref } = Vue
 // 				let pinia = Pinia.createPinia()
 
-// 				Vue.createApp({
+// 				app = Vue.createApp({
 // 					template: html,
 // 					components: {
 // 						"spinner" : await spinner()
@@ -96,6 +98,9 @@ const home = async () => {
 // 			Vue.onMounted( () => {
 // 				mounting()
 // 			})
+
+
+
 // 		}
 // 	})
 // }
